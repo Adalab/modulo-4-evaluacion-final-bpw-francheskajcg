@@ -25,7 +25,7 @@ Este proyecto es una **API** que te permite gestionar alumnos en una guardería.
    ```bash
    git clone https://github.com/tu-usuario/tu-repositorio.git
    cd tu-repositorio
-
+ ```bash
 2.Instala las dependencias:
 
 ```bash
