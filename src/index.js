@@ -113,8 +113,6 @@ app.post('/alumnos', async (req, res) => {
             success: false,
             error: "Error al crear el alumno",
         });
-    } finally {
-        await conn.end();
     }
 });
 
@@ -150,6 +148,9 @@ app.put('/alumnos/:id', async (req, res) => {
                 id]
         );
 
+        // Cerrar la conexión
+        await conn.end();
+
         // Verificar si se actualizó algún registro
         if (result.affectedRows === 0) {
             return res.status(404).json({
@@ -164,15 +165,33 @@ app.put('/alumnos/:id', async (req, res) => {
             message: "Alumno actualizado correctamente",
         });
     } catch (error) {
-        // Manejar errores de la base de datos
-        console.error('Error al actualizar el alumno:', error);
         res.status(500).json({
             success: false,
             error: "Error al actualizar el alumno",
         });
-    } finally {
-        // Cerrar la conexión a la base de datos
-        await conn.end();
     }
 });
+
+// eliminar un alumno
+app.delete('/alumnos/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const conn = await getConnection();
+
+        const [result] = await conn.query('DELETE FROM alumnos WHERE id_alumno = ?', [id]);
+
+        await conn.end();
+
+        if (result.affectedRows === 0) {
+            res.status(404).json({ error: 'Alumno no encontrado' });
+        } else {
+            res.json({ message: 'Alumno eliminado correctamente' });
+        }
+
+    } catch (error) {
+        res.status(500).json({ error: 'Error al eliminar el alumno' });
+    }
+});
+
 
