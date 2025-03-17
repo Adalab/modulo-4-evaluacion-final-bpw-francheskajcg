@@ -20,27 +20,26 @@ Este proyecto es una **API** que te permite gestionar alumnos en una guardería.
 
 ## **Instalación**
 
-1. Clona el repositorio:
+Clona el repositorio:
 
-   ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
-   cd tu-repositorio
- ```bash
-2.Instala las dependencias:
+bash
+Copy
+git clone https://github.com/tu-usuario/tu-repositorio.git
+cd tu-repositorio
+Instala las dependencias:
 
-```bash
+bash
+Copy
 npm install
- ```bash
-## **Configuración**
+Configuración
+Crea un archivo .env en la raíz del proyecto y añade lo siguiente:
 
-1.Crea un archivo .env en la raíz del proyecto y añade lo siguiente:
-
-```bash
+bash
+Copy
 MYSQL_HOST=localhost
 MYSQL_PORT=3306
 MYSQL_USER=root
 MYSQL_SCHEMA=guarderia
- ```bash
 MYSQL_HOST: Dirección de tu servidor MySQL (normalmente localhost).
 
 MYSQL_PORT: Puerto de MySQL (normalmente 3306).
@@ -49,8 +48,10 @@ MYSQL_USER: Tu usuario de MySQL.
 
 MYSQL_SCHEMA: Nombre de la base de datos.
 
-2. Crea la base de datos y la tabla alumnos en MySQL:
- ```bash
+Crea la base de datos y la tabla alumnos en MySQL:
+
+sql
+Copy
 CREATE DATABASE guarderia;
 
 USE guarderia;
@@ -62,16 +63,16 @@ CREATE TABLE alumnos (
     fecha_nacimiento DATE NOT NULL,
     aulas_id_curso INT NOT NULL
 );
- ```bash
-## **Endpoints de la API**🌐
-
-1. Ver Todos los Alumnos👥
+Endpoints de la API 🌐
+1. Ver Todos los Alumnos 👥
 Método: GET
 
 URL: /alumnos
 
 Respuesta:
-```bash
+
+json
+Copy
 {
     "info": { "count": 3 },
     "results": [
@@ -82,15 +83,18 @@ Respuesta:
             "fecha_nacimiento": "2019-05-10",
             "aulas_id_curso": 1
         }
-   ```bash
-
-2. Ver un Alumno por ID👤
+    ]
+}
+2. Ver un Alumno por ID 👤
 Método: GET
 
 URL: /alumnos/:id
 
-Respuesta: 
-```bash
+Respuesta:
+
+json
+Copy
+{
     "alumno": {
         "id_alumno": 1,
         "nombre": "Lucía",
@@ -98,81 +102,95 @@ Respuesta:
         "fecha_nacimiento": "2019-05-10",
         "aulas_id_curso": 1
     }
- ```bash
-
-3. Crear un Nuevo Alumno➕
+}
+3. Crear un Nuevo Alumno ➕
 Método: POST
 
 URL: /alumnos
 
-Body: Datos del nuevo alumno (nombre, apellido, fecha_nacimiento, aulas_id_curso).
+Body:
 
-Respuesta:
-```bash
+json
+Copy
 {
     "nombre": "Juan",
     "apellido": "Pérez",
     "fecha_nacimiento": "2020-05-10",
     "aulas_id_curso": 1
 }
- ```bash
-4. Actualizar un Alumno✏️
+Respuesta:
+
+json
+Copy
+{
+    "success": true,
+    "id_alumno": 4
+}
+4. Actualizar un Alumno ✏️
 Método: PUT
 
 URL: /alumnos/:id
 
-Body: Nuevos datos del alumno.
+Body:
 
-Respuesta:
-```bash
+json
+Copy
 {
     "nombre": "Juan",
     "apellido": "Pérez",
     "fecha_nacimiento": "2020-05-10",
     "aulas_id_curso": 2
 }
- ```bash
+Respuesta:
+
+json
+Copy
+{
+    "success": true,
+    "message": "Alumno actualizado correctamente"
+}
 5. Eliminar un Alumno 🗑️
 Método: DELETE
 
 URL: /alumnos/:id
 
 Respuesta:
-```bash
+
+json
+Copy
 {
     "message": "Alumno eliminado correctamente"
 }
- ```bash
-## **Bibliotecas Utilizadas**
+Bibliotecas Utilizadas 📚
 Este proyecto utiliza las siguientes bibliotecas:
 
-1. express:
+express:
 
 Es un framework para Node.js que facilita la creación de servidores web y APIs.
 
 Lo usamos para manejar las rutas y las solicitudes HTTP (GET, POST, PUT, DELETE).
 
-2. cors:
+cors:
 
 Es un middleware que permite a nuestro servidor aceptar solicitudes desde diferentes dominios.
 
 Lo usamos para evitar problemas cuando el frontend y el backend están en servidores diferentes.
 
-3. dotenv:
+dotenv:
 
 Es una librería que nos permite cargar variables de entorno desde un archivo .env.
 
 Lo usamos para mantener seguras las credenciales de la base de datos (como el usuario y la contraseña).
 
-4. mysql2/promise:
+mysql2/promise:
 
 Es una librería para conectarse a una base de datos MySQL.
 
 La versión promise nos permite usar async/await en lugar de callbacks, lo que hace el código más fácil de leer.
 
-## **Autor**
-
+Autor
 Francheska Contreras García
+
 
 
 
