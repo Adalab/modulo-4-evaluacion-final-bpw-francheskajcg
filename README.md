@@ -10,7 +10,7 @@ Este proyecto es una **API** que te permite gestionar alumnos en una guardería.
 
 ---
 
-## **¿Qué necesitas para empezar?**
+## **¿Qué necesitas para empezar?**  🚀
 
 1. **Node.js**: Descárgalo e instálalo desde [nodejs.org](https://nodejs.org/).
 2. **MySQL**: Asegúrate de tener MySQL instalado y funcionando.
@@ -28,12 +28,14 @@ Este proyecto es una **API** que te permite gestionar alumnos en una guardería.
 
 2.Instala las dependencias:
 
+```bash
 npm install
 
 ## **Configuración**
 
 1.Crea un archivo .env en la raíz del proyecto y añade lo siguiente:
 
+```bash
 MYSQL_HOST=localhost
 MYSQL_PORT=3306
 MYSQL_USER=root
@@ -61,46 +63,85 @@ CREATE TABLE alumnos (
     aulas_id_curso INT NOT NULL
 );
 
-## **Endpoints de la API**
+## **Endpoints de la API**🌐
 
-1. Ver Todos los Alumnos
+1. Ver Todos los Alumnos👥
 Método: GET
 
 URL: /alumnos
 
-Respuesta: Lista de todos los alumnos.
+Respuesta:
+```bash
+{
+    "info": { "count": 3 },
+    "results": [
+        {
+            "id_alumno": 1,
+            "nombre": "Lucía",
+            "apellido": "Pérez",
+            "fecha_nacimiento": "2019-05-10",
+            "aulas_id_curso": 1
+        }
+  
 
-2. Ver un Alumno por ID
+2. Ver un Alumno por ID👤
 Método: GET
 
 URL: /alumnos/:id
 
-Respuesta: Detalles de un alumno específico.
+Respuesta: 
+```bash
+    "alumno": {
+        "id_alumno": 1,
+        "nombre": "Lucía",
+        "apellido": "Pérez",
+        "fecha_nacimiento": "2019-05-10",
+        "aulas_id_curso": 1
+    }
 
-3. Crear un Nuevo Alumno
+
+3. Crear un Nuevo Alumno➕
 Método: POST
 
 URL: /alumnos
 
 Body: Datos del nuevo alumno (nombre, apellido, fecha_nacimiento, aulas_id_curso).
 
-Respuesta: ID del alumno creado.
+Respuesta:
+```bash
+{
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "fecha_nacimiento": "2020-05-10",
+    "aulas_id_curso": 1
+}
 
-4. Actualizar un Alumno
+4. Actualizar un Alumno✏️
 Método: PUT
 
 URL: /alumnos/:id
 
 Body: Nuevos datos del alumno.
 
-Respuesta: Mensaje de éxito.
+Respuesta:
+```bash
+{
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "fecha_nacimiento": "2020-05-10",
+    "aulas_id_curso": 2
+}
 
-5. Eliminar un Alumno
+5. Eliminar un Alumno 🗑️
 Método: DELETE
 
 URL: /alumnos/:id
 
-Respuesta: Mensaje de éxito.
+Respuesta:
+```bash
+{
+    "message": "Alumno eliminado correctamente"
+}
 
 ## **Bibliotecas Utilizadas**
 Este proyecto utiliza las siguientes bibliotecas:
