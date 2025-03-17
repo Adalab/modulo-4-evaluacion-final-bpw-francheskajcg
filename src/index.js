@@ -93,7 +93,8 @@ app.post('/alumnos', async (req, res) => {
     try {
         // la consulta para insertar un nuevo alumno
         const [result] = await conn.execute(
-            'INSERT INTO alumnos (nombre, apellido, fecha_nacimiento, aulas_id_curso) VALUES (?, ?, ?, ?)',
+            `INSERT INTO alumnos (nombre, apellido, fecha_nacimiento, aulas_id_curso) 
+            VALUES (?, ?, ?, ?)`,
             [
                 req.body.nombre,
                 req.body.apellido,
