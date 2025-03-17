@@ -23,13 +23,14 @@ Este proyecto es una **API** que te permite gestionar alumnos en una guardería.
 Clona el repositorio:
 
 bash
-Copy
+
 git clone https://github.com/tu-usuario/tu-repositorio.git
 cd tu-repositorio
+
 Instala las dependencias:
 
 bash
-Copy
+
 npm install
 Configuración
 Crea un archivo .env en la raíz del proyecto y añade lo siguiente:
