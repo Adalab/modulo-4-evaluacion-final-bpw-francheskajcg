@@ -30,7 +30,7 @@ Este proyecto es una **API** que te permite gestionar alumnos en una guardería.
 
 ```bash
 npm install
-
+ ```bash
 ## **Configuración**
 
 1.Crea un archivo .env en la raíz del proyecto y añade lo siguiente:
@@ -40,7 +40,7 @@ MYSQL_HOST=localhost
 MYSQL_PORT=3306
 MYSQL_USER=root
 MYSQL_SCHEMA=guarderia
-
+ ```bash
 MYSQL_HOST: Dirección de tu servidor MySQL (normalmente localhost).
 
 MYSQL_PORT: Puerto de MySQL (normalmente 3306).
@@ -50,7 +50,7 @@ MYSQL_USER: Tu usuario de MySQL.
 MYSQL_SCHEMA: Nombre de la base de datos.
 
 2. Crea la base de datos y la tabla alumnos en MySQL:
-
+ ```bash
 CREATE DATABASE guarderia;
 
 USE guarderia;
@@ -62,7 +62,7 @@ CREATE TABLE alumnos (
     fecha_nacimiento DATE NOT NULL,
     aulas_id_curso INT NOT NULL
 );
-
+ ```bash
 ## **Endpoints de la API**🌐
 
 1. Ver Todos los Alumnos👥
@@ -82,7 +82,7 @@ Respuesta:
             "fecha_nacimiento": "2019-05-10",
             "aulas_id_curso": 1
         }
-  
+   ```bash
 
 2. Ver un Alumno por ID👤
 Método: GET
@@ -98,7 +98,7 @@ Respuesta:
         "fecha_nacimiento": "2019-05-10",
         "aulas_id_curso": 1
     }
-
+ ```bash
 
 3. Crear un Nuevo Alumno➕
 Método: POST
@@ -115,7 +115,7 @@ Respuesta:
     "fecha_nacimiento": "2020-05-10",
     "aulas_id_curso": 1
 }
-
+ ```bash
 4. Actualizar un Alumno✏️
 Método: PUT
 
@@ -131,7 +131,7 @@ Respuesta:
     "fecha_nacimiento": "2020-05-10",
     "aulas_id_curso": 2
 }
-
+ ```bash
 5. Eliminar un Alumno 🗑️
 Método: DELETE
 
@@ -142,7 +142,7 @@ Respuesta:
 {
     "message": "Alumno eliminado correctamente"
 }
-
+ ```bash
 ## **Bibliotecas Utilizadas**
 Este proyecto utiliza las siguientes bibliotecas:
 
